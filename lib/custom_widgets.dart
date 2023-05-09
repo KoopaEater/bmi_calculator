@@ -28,8 +28,7 @@ class IconContent extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  IconContent(
-      {required this.icon, required this.label});
+  IconContent({required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +47,27 @@ class IconContent extends StatelessWidget {
           style: kLabelTextStyle,
         ),
       ],
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final IconData? icon;
+
+  RoundIconButton({required this.onPressed, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      child: Icon(icon),
+      constraints: BoxConstraints.tightFor(
+        height: 56.0,
+        width: 56.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: kButtonColor,
     );
   }
 }
