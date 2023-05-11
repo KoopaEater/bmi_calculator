@@ -71,3 +71,30 @@ class RoundIconButton extends StatelessWidget {
     );
   }
 }
+
+class BottomButton extends StatelessWidget {
+
+  final VoidCallback onPressed;
+  final String? text;
+
+  BottomButton({required this.onPressed, this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        color: kBottomContainerColor,
+        height: kBottomContainerHeight,
+        width: double.infinity,
+        child: Center(
+          child: Text(
+            text == null ? '' : text.toString(),
+            style: kButtonTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
